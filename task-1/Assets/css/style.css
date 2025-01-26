@@ -1,10 +1,9 @@
-/* Header Styles */
+
 header {
     background-color: grey;
     color: azure;
 }
 
-/* Icon Styles */
 .icon {
     width: 50px;
     background-color: aliceblue;
@@ -15,17 +14,21 @@ header {
     color: red;
 }
 
-/* Sidebar Styles */
 .aside {
     background-color: aquamarine;
     padding: 15px;
 }
 
+
+aside {
+    max-width: 300px; 
+}
+
+
 aside div {
     background-color: khaki;
 }
 
-/* Card Styles */
 .card {
     width: 18rem;
     background-color: pink;
@@ -36,11 +39,15 @@ aside div {
     height: 100px;
 }
 
+.card {
+    width: 100%; 
+    max-width: 100%; 
+}
+
 .fullbox{
     margin-top: 25px;
 }
 
-/* Avatar Styles */
 .avatar {
     width: 80px;
     height: 80px;
@@ -48,7 +55,6 @@ aside div {
     background-color: lightslategrey;
 }
 
-/* Main Section Styles */
 .main{
     background-color: cornflowerblue;
     padding: 15px;
@@ -64,7 +70,6 @@ main section .avatar {
     height: 100px;
 }
 
-/* Button Alignment */
 button {
     margin-left: 15rem;
 }

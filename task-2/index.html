@@ -6,26 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Natural Coders Task-2</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     <header>
-        <div class="nav">
-            <div class="icons nav-item">
-                <i class="fa-solid fa-minus me-2 "></i>
-                <i class="fa-solid fa-circle-xmark "></i>
+        <div class="nav" id="navbar">
+            <!-- Left Icons -->
+            <div class="icons">
+                <i class="fa-solid fa-minus me-2"></i>
+                <i class="fa-solid fa-circle-xmark"></i>
             </div>
-            <div class="heading ">
-                PERSONAL PORTFOLIO
+    
+            <!-- Heading -->
+            <div class="heading">PERSONAL PORTFOLIO</div>
+    
+            <!-- Hamburger Icon -->
+            <div class="hamburger" id="hamburger">
+                <i class="fa-solid fa-bars"></i>
             </div>
-            <ul class="nav-cont">
-                <li href="#">Age</li>
-                <li href="#">Education</li>
-                <li href="#">Skills</li>
-            </ul>
         </div>
+    
+        <!-- Navigation Menu -->
+        <ul class="nav-cont" id="nav-menu">
+            <li><a href="#">Age</a></li>
+            <li><a href="#">Education</a></li>
+            <li><a href="#">Skills</a></li>
+        </ul>
     </header>
     <div class="container-1">
         <div class="box aside">
@@ -115,7 +122,6 @@
             </div>
         </div>
     </div>
-
+<script src="assets/js/script.js"></script>
 </body>
-
 </html>

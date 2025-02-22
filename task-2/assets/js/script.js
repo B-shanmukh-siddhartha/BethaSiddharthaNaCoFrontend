@@ -1,17 +1,6 @@
-const navbar = document.getElementById("navbar");
-const navMenu = document.getElementById("nav-menu");
-const header = document.querySelector(".header");
+const hamburger = document.getElementById('hamburger');
+const navCont = document.querySelector('.nav-cont');
 
-hamburger.addEventListener("click", function () {
-    if (window.innerWidth <= 900) {
-        header.classList.toggle("show"); // Make header column layout
-        navMenu.classList.toggle("show"); // Show/hide menu
-    }
-});
-
-window.addEventListener("resize", function () {
-    if (window.innerWidth > 900) {
-        header.classList.remove("show");
-        navMenu.classList.remove("show");
-    }
+hamburger.addEventListener('click', () => {
+    navCont.classList.toggle('active');
 });

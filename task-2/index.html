@@ -4,119 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natural Coders Task-2</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Personal Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
-    <header class="header">
-        <div class="nav" id="navbar">
-            <div class="icons">
-                <i class="fa-solid fa-minus me-2"></i>
-                <i class="fa-solid fa-circle-xmark"></i>
-            </div>
-            <div class="heading">PERSONAL PORTFOLIO</div>
-            <div class="hamburger" id="hamburger">
+
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">PERSONAL PORTFOLIO</a>
+            <div class="menu-icon" onclick="toggleMenu()">
                 <i class="fa-solid fa-bars"></i>
             </div>
-            <div class="nav-cont">
-            <ul>
-                <li><a href="#">Age</a></li>
-                <li><a href="#">Education</a></li>
-                <li><a href="#">Skills</a></li>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </div>
-    </div>
-    </header>
-    <div class="container-1">
-        <div class="box aside">
-            <div class="top">
-                <h2>Personal Portfolio</h2>
-                <div class="user">
-                    <i class="fa-regular fa-user"></i>
-                </div>
-                <p>PERSON</p>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="card">
+                <h5 class="card-title">📜 Personal Profile</h5>
+                <p class="card-text">Artificial Intelligence (AI) has rapidly evolved from a futuristic concept to an integral part of our daily lives. From voice assistants like Siri and Alexa to recommendation algorithms on Netflix and Amazon, AI is shaping how we interact with technology. It enables machines to learn from data, recognize patterns, and make decisions with minimal human intervention. The ability of AI to automate repetitive tasks, enhance accuracy, and process vast amounts of data has made it a game-changer in multiple industries, including healthcare, finance, and transportation.</p>
             </div>
-            <div class="side-info">
-                <h2>Details about you</h2>
-                <ul class="list-unstyled">
-                    <li>Age</li>
-                    <li>Education</li>
-                    <li>Skills</li>
-                </ul>
-            </div>
-        </div>
-        <div class="box-2 main">
-            <div class="top">
-                <h2>Personal Portfolio</h2>
-                <div class="user">
-                    <i class="fa-regular fa-user"></i>
+            <div class="card text-center">
+                <h5 class="card-title">PERSONAL PORTFOLIO</h5>
+                <i class="fa-solid fa-user fa-3x mt-2"></i>
+                <h5>PROFILE</h5>
+                <div class="details-boxes">
+                    <div class="small-box">DETAILS-1</div>
+                    <div class="small-box">DETAILS-2</div>
                 </div>
-                <h3>FULL NAME</h3>
-            </div>
-            <div class="down">
-                <div class="projects">
-                    <h3>Projects</h3>
-                    <ul>
-                        <li>Project-1</li>
-                        <li>Project-2</li>
-                        <li>Project-3</li>
-                        <li>Project-4</li>
-                    </ul>
-                </div>
-            
-                <div class="achievements">
-                    <h3>Achievements</h3>
-                    <ul>
-                        <li>Item-1</li>
-                        <li>Item-2</li>
-                        <li>Item-3</li>
-                    </ul>
-                </div>
-            </div>
-            <button>click me!!</button>
-        </div>
-        <div class="box left">
-            <div class="content">
-                <h2>Personal Content</h2>
-                <ul>
-                    <li>Content 1</li>
-                    <li>Content 2</li>
-                    <li>Content 3</li>
-                </ul>
             </div>
             <div class="card">
-                <h3>Card Sample</h3>
-                <div class="image">
-                    <img src="assets/images/card.jpeg" alt="Card Image">
-                </div>
-                <div class="card-content">
-                    <p>This is a simple card with an image, title, and description.</p>
-                </div>
+                <h5 class="card-title">Personal Content</h5>
+                <ul>
+                    <li>Competitive Programmer</li>
+                    <li>MERN Developer</li>
+                    <li>Athlete</li>
+                </ul>
+                <h6>Contact</h6>
+                <p>Mobile: +1 (555) 123-4567<br>Email: example@email.com</p>
+                <h6>Social Media</h6>
+                <p>LinkedIn | Instagram</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card">
+                <h5 class="card-title">Basic Info</h5>
+                <p class="card-text">The rapid advancement of technology has transformed how we live, work, and communicate...</p>
+            </div>
+            <div class="card">
+                <h5 class="card-title">Project</h5>
+                <p class="card-text"><strong>Personal Portfolio Website</strong><br>Showcasing skills, achievements, and projects with HTML, CSS, and JavaScript.</p>
+            </div>
+            <div class="card">
+                <h5 class="card-title">Certification</h5>
+                <p class="card-text"><strong>Certified in IoT Fundamentals</strong><br>Using IoT for smart home automation and intelligent living spaces.</p>
             </div>
         </div>
     </div>
-    <div class="container-2">
-        <div class="box row-2">
-            <div class="2-context">
-                <h2 class="h6">Basic Information</h2>
-                <p>Details about you</p>
-            </div>
-        </div>
-        <div class="box-2 row-2">
-            <div class="2-context">
-                <h2 class="h6">Detailed Projects</h2>
-                <p>Descriptions and links to your work</p>
-            </div>
-        </div>
-        <div class="box row-2">
-            <div class="2-context">
-                <h2 class="h6">Other Projects</h2>
-                <p>Keep your project list here</p>
-            </div>
-        </div>
-    </div>
-<script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

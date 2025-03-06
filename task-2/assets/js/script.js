@@ -1,6 +1,6 @@
-const hamburger = document.getElementById('hamburger');
-const navCont = document.querySelector('.nav-cont');
-
-hamburger.addEventListener('click', () => {
-    navCont.classList.toggle('active');
-});
+function toggleMenu() {
+    const navLinks = document.getElementById("navLinks");
+    
+    // Toggle the 'active' class to show/hide menu
+    navLinks.classList.toggle("active");
+}

@@ -1,11 +1,21 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     const inputTask = document.getElementById("inputTask");
     const addButton = document.querySelector(".add");
     const moveRightButton = document.querySelector(".right");
     const moveLeftButton = document.querySelector(".left");
     const removeButton = document.querySelector(".remove");
-    const todoList = document.querySelector(".td");
-    const completedList = document.querySelector(".COM");
+    const todoList = document.querySelector(".todo-list");
+    const completedList = document.querySelector(".completed-list");
+    const toast = document.getElementById("toast");
+
+    // Function to show toaster message
+    function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add("show");
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 3000);
+    }
 
     // Function to create a task element
     function createTaskElement(taskText) {
@@ -13,42 +23,67 @@ document.addEventListener("DOMContentLoaded", function () {
         task.className = "task";
         task.textContent = taskText;
 
-        // Toggle selection on click
-        task.addEventListener("click", function () {
+        task.addEventListener("click", () => {
             task.classList.toggle("selected");
         });
 
         return task;
     }
 
-    // Add Task
-    addButton.addEventListener("click", function () {
-        let taskText = inputTask.value.trim();
-        if (taskText !== "") {
-            let taskElement = createTaskElement(taskText);
-            todoList.appendChild(taskElement);
-            inputTask.value = "";
+    // Prevent duplicate entries
+    function isDuplicate(taskText) {
+        let tasks = document.querySelectorAll(".task");
+        for (let task of tasks) {
+            if (task.textContent === taskText) {
+                return true;
+            }
         }
+        return false;
+    }
+
+    // Add Task
+    addButton.addEventListener("click", () => {
+        let taskText = inputTask.value.trim();
+
+        if (!taskText) {
+            showToast("Please enter a valid task");
+            return;
+        }
+
+        if (isDuplicate(taskText)) {
+            showToast("Task already exists!");
+            return;
+        }
+
+        let taskElement = createTaskElement(taskText);
+        todoList.appendChild(taskElement);
+        inputTask.value = "";
+        showToast("Task added to To-Do list!");
     });
 
-    // Move selected tasks to the right (To-Do → Completed)
-    moveRightButton.addEventListener("click", function () {
-        document.querySelectorAll(".td .selected").forEach(task => {
+    // Move task to the right
+    moveRightButton.addEventListener("click", () => {
+        document.querySelectorAll(".todo-list .selected").forEach(task => {
             task.classList.remove("selected");
             completedList.appendChild(task);
+            showToast("Task moved to Completed list!");
         });
     });
 
-    // Move selected tasks to the left (Completed → To-Do)
-    moveLeftButton.addEventListener("click", function () {
-        document.querySelectorAll(".COM .selected").forEach(task => {
+    // Move task to the left
+    moveLeftButton.addEventListener("click", () => {
+        document.querySelectorAll(".completed-list .selected").forEach(task => {
             task.classList.remove("selected");
             todoList.appendChild(task);
+            showToast("Task moved to To-Do list!");
         });
     });
 
     // Remove selected tasks
-    removeButton.addEventListener("click", function () {
-        document.querySelectorAll(".selected").forEach(task => task.remove());
+    removeButton.addEventListener("click", () => {
+        document.querySelectorAll(".selected").forEach(task => {
+            task.remove();
+            showToast("Task removed!");
+        });
     });
 });

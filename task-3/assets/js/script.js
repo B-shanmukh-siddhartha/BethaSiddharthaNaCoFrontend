@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const completedList = document.querySelector(".completed-list");
     const toast = document.getElementById("toast");
 
-    // Function to show toaster message
     function showToast(message) {
         toast.textContent = message;
         toast.classList.add("show");
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 3000);
     }
 
-    // Function to create a task element
     function createTaskElement(taskText) {
         let task = document.createElement("div");
         task.className = "task";
@@ -30,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return task;
     }
 
-    // Prevent duplicate entries
     function isDuplicate(taskText) {
         let tasks = document.querySelectorAll(".task");
         for (let task of tasks) {
@@ -41,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return false;
     }
 
-    // Add Task
     addButton.addEventListener("click", () => {
         let taskText = inputTask.value.trim();
 
@@ -61,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
         showToast("Task added to To-Do list!");
     });
 
-    // Move task to the right
     moveRightButton.addEventListener("click", () => {
         document.querySelectorAll(".todo-list .selected").forEach(task => {
             task.classList.remove("selected");
@@ -70,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Move task to the left
     moveLeftButton.addEventListener("click", () => {
         document.querySelectorAll(".completed-list .selected").forEach(task => {
             task.classList.remove("selected");
@@ -79,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Remove selected tasks
     removeButton.addEventListener("click", () => {
         document.querySelectorAll(".selected").forEach(task => {
             task.remove();

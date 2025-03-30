@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
         task.textContent = taskText;
 
         task.addEventListener("click", () => {
-            task.classList.toggle("selected");
+            document.querySelectorAll(".task").forEach(t => t.classList.remove("selected"));
+            task.classList.add("selected");
         });
 
         return task;

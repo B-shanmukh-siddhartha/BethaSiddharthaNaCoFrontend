@@ -1,4 +1,4 @@
-
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -13,12 +13,13 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding: 20px;
 }
 
 .container {
-    height: 80vh;
+    height: 70vh;
     width: 90%;
-    background :linear-gradient(45deg,hsl(259, 100%, 76%),#9260ff);
+    background: linear-gradient(45deg, hsl(259, 100%, 76%), #9260ff);
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -51,8 +52,8 @@ input:focus {
 }
 
 button {
-    height:35px;
-    width:8rem;
+    height: 35px;
+    width: 14vw;
     padding: 5px;
     background-color: rgb(80, 252, 80);
     color: white;
@@ -63,8 +64,8 @@ button {
     font-weight: 500;
 }
 
-button:hover {
-    background-color: #0a58ca;
+button:active {
+    background-color:green;
 }
 
 .lists {
@@ -74,14 +75,16 @@ button:hover {
 }
 
 .box {
-    border:2px solid black;
+    border: 2px solid black;
     background-color: #ffffff;
     padding: 16px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 100%;
-    height:70%;
+    height: 70%;
     overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: grey #f1f1f1;
 }
 
 h2 {
@@ -106,9 +109,9 @@ h2 {
 }
 
 .selected {
-    background-color: #0d6efd; 
-    color: #ffffff; 
-    border: 1px solid #0a58ca;
+    background-color: greenyellow;
+    color: #ffffff;
+    border: 2px solid blue;
     transition: background 0.3s ease;
 }
 
@@ -148,51 +151,85 @@ h2 {
     font-size: 14px;
 }
 
-@media (max-width: 700px) {
-    .container{
-        height:100vh;
+@media (max-width: 1024px) {
+    .container {
+        width: 95%;
+        height: 70vh;
+        padding: 15px;
     }
     .lists {
+        height: 50vh;
         flex-direction: column;
         align-items: center;
-        gap: 16px;
     }
-
     .box {
         width: 100%;
-        max-width: 350px;
-        height: 300px;
+        max-width: 450px;
+        height: 40%;
     }
-
+    .buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 8px;
+    }
     .buttons {
         flex-direction: column;
-        justify-content: center;
-        gap: 12px;
+        gap: 10px;
     }
-
-    button {
-        padding: 10px 16px;
-    }
-
     .right::after {
-        content: "Move Down";
+        content: "↓";
     }
-
     .left::after {
-        content: "Move Up";
+        content: "↑";
     }
 }
 
-.box {
-    border: 2px solid black;
-    background-color: #ffffff;
-    padding: 16px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    height: 70%;
-    overflow-y: auto;
-    scrollbar-width:10px; 
-    scrollbar-color: grey #f1f1f1; 
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+    .nav {
+        flex-direction: column;
+        gap: 5px;
+    }
+    input {
+        width: 90%;
+    }
+    button {
+        width: 90%;
+    }
+    .buttons {
+        width:33vw;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .right::after {
+        content: "↓";
+    }
+    .left::after {
+        content: "↑";
+    }
 }
 
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 18px;
+    }
+    .box {
+        max-width: 100%;
+        height: auto;
+    }
+    .task {
+        font-size: 14px;
+        padding: 10px;
+    }
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

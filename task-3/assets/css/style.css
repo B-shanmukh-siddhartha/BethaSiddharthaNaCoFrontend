@@ -151,44 +151,16 @@ h2 {
     font-size: 14px;
 }
 
-@media (max-width: 1024px) {
-    .container {
-        width: 95%;
-        height: 70vh;
-        padding: 15px;
-    }
-    .lists {
-        height: 50vh;
-        flex-direction: column;
-        align-items: center;
-    }
-    .box {
-        width: 100%;
-        max-width: 450px;
-        height: 40%;
-    }
-    .buttons {
-        flex-direction: row;
-        justify-content: center;
-        gap: 8px;
-    }
-    .buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .right::after {
-        content: "↓";
-    }
-    .left::after {
-        content: "↑";
-    }
-}
+
 
 @media (max-width: 768px) {
     .container {
         width: 100%;
         height: auto;
         padding: 10px;
+    }
+    .box{
+        height:40%;
     }
     .nav {
         flex-direction: column;
@@ -206,10 +178,10 @@ h2 {
         gap: 10px;
     }
     .right::after {
-        content: "↓";
+        content: "->";
     }
     .left::after {
-        content: "↑";
+        content: "<-";
     }
 }
 
@@ -232,4 +204,20 @@ h2 {
         font-size: 14px;
         padding: 8px;
     }
+}
+
+@media( max-height: 800px){
+    .container{
+        height:70vh;
+    }
+    .box{
+        height:40%;
+    }
+    button{
+        height:10%;
+    }
+    .add{
+        height:40px;
+    }
+
 }

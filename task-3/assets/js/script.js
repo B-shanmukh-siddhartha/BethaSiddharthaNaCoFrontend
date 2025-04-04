@@ -1,83 +1,89 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const inputTask = document.getElementById("inputTask");
-    const addButton = document.querySelector(".add");
-    const moveRightButton = document.querySelector(".right");
-    const moveLeftButton = document.querySelector(".left");
-    const removeButton = document.querySelector(".remove");
-    const todoList = document.querySelector(".todo-list");
-    const completedList = document.querySelector(".completed-list");
-    const toast = document.getElementById("toast");
+// Function to show a toaster notification
+function showToast(message) {
+    const toaster = document.getElementById("toaster");
+    toaster.innerText = message;
+    toaster.style.display = "block";
+    setTimeout(() => {
+        toaster.style.display = "none";
+    }, 2000);
+}
 
-    function showToast(message) {
-        toast.textContent = message;
-        toast.classList.add("show");
-        setTimeout(() => {
-            toast.classList.remove("show");
-        }, 3000);
-    }
+// Function to add a new task
+function addTask() {
+    const taskInput = document.getElementById("taskInput");
+    const taskText = taskInput.value.trim();
 
-    function createTaskElement(taskText) {
-        let task = document.createElement("div");
-        task.className = "task";
-        task.textContent = taskText;
+    if (taskText === "") return; // Prevent adding empty tasks
 
-        task.addEventListener("click", () => {
-            document.querySelectorAll(".task").forEach(t => t.classList.remove("selected"));
-            task.classList.add("selected");
-        });
-
-        return task;
-    }
-
-    function isDuplicate(taskText) {
-        let tasks = document.querySelectorAll(".task");
-        for (let task of tasks) {
-            if (task.textContent === taskText) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    addButton.addEventListener("click", () => {
-        let taskText = inputTask.value.trim();
-
-        if (!taskText) {
-            showToast("Please enter a valid task");
-            return;
-        }
-
-        if (isDuplicate(taskText)) {
+    // ✅ Prevent duplicate tasks
+    const allTasks = document.querySelectorAll(".task-item span");
+    for (let task of allTasks) {
+        if (task.innerText === taskText) {
             showToast("Task already exists!");
             return;
         }
+    }
 
-        let taskElement = createTaskElement(taskText);
-        todoList.appendChild(taskElement);
-        inputTask.value = "";
-        showToast("Task added to To-Do list!");
+    const taskItem = document.createElement("div");
+    taskItem.classList.add("task-item"); // ✅ No random colors now
+    taskItem.innerHTML = `<span>${taskText}</span>`;
+    taskItem.onclick = function () {
+        this.classList.toggle("selected");
+    };
+
+    document.getElementById("taskBox").appendChild(taskItem);
+    taskInput.value = "";
+    showToast("Task added!");
+}
+
+function moveToCompleted() {
+    const selectedTasks = document.querySelectorAll("#taskBox .selected");
+
+    if (selectedTasks.length === 0) {
+        showToast("No task selected to move!");
+        return;
+    }
+
+    selectedTasks.forEach(task => {
+        task.classList.remove("selected");
+        task.classList.add("completed");
+        task.onclick = function () {
+            this.classList.toggle("selected");
+        };
+        document.getElementById("completedBox").appendChild(task);
     });
 
-    moveRightButton.addEventListener("click", () => {
-        document.querySelectorAll(".todo-list .selected").forEach(task => {
-            task.classList.remove("selected");
-            completedList.appendChild(task);
-            showToast("Task moved to Completed list!");
-        });
+    showToast("Task moved to Completed!");
+}
+
+function moveToTasks() {
+    const selectedTasks = document.querySelectorAll("#completedBox .selected");
+
+    if (selectedTasks.length === 0) {
+        showToast("No task selected to move!");
+        return;
+    }
+
+    selectedTasks.forEach(task => {
+        task.classList.remove("selected");
+        task.classList.remove("completed");
+        task.onclick = function () {
+            this.classList.toggle("selected");
+        };
+        document.getElementById("taskBox").appendChild(task);
     });
 
-    moveLeftButton.addEventListener("click", () => {
-        document.querySelectorAll(".completed-list .selected").forEach(task => {
-            task.classList.remove("selected");
-            todoList.appendChild(task);
-            showToast("Task moved to To-Do list!");
-        });
-    });
+    showToast("Task moved back to Tasks!");
+}
 
-    removeButton.addEventListener("click", () => {
-        document.querySelectorAll(".selected").forEach(task => {
-            task.remove();
-            showToast("Task removed!");
-        });
-    });
-});
+function deleteSelected() {
+    const selectedTasks = document.querySelectorAll(".selected");
+
+    if (selectedTasks.length === 0) {
+        showToast("No task selected to delete!");
+        return;
+    }
+
+    selectedTasks.forEach(task => task.remove());
+    showToast("Task deleted!");
+}
